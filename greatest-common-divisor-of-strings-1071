@@ -1,0 +1,52 @@
+/**
+ * @param {string} str1
+ * @param {string} str2
+ * @return {string}
+ */
+var gcdOfStrings = function(str1, str2) {
+    
+
+let len1= str1.length;
+let len2 = str2.length;
+
+let min = len1>len2?len2:len1;
+let max = len1>len2?len1:len2;
+
+let high_div=1;
+for(let i = 2;i<=min;i++)
+{
+    if(max%i==0 && min%i==0)
+    high_div = i;
+}
+
+let global_common = "";
+
+//!! Killer step
+
+If the two string are made of same repeating characters they should yield same result when added forward or backword.
+
+if((str1+str2)!=(str2+str1)) return "";
+
+
+for(let i = high_div;i>0;i--)
+{
+    let common1 = "";
+    let common2 = "";
+
+    if(str1.length>i)
+    {
+        if(str1[i] === str1[0])
+        common1 = str1.substring(0,i);
+    }
+    if(str2.length>i)
+    {
+        if(str2[i] === str2[0])
+        common2 = str2.substring(0,i);
+    }
+
+    if((common1 === common2 && common1.length && common2.length)|| (common1 === str2)||(common2 === str1)) //added on test cases encounter
+    return common1 || common2; //added on test case encounter
+    else if(str1 === str2) return str1; //added on test cases encounter
+}
+return global_common;
+};
