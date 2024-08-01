@@ -1,4 +1,4 @@
-
+Number 1768. 
 Approach: 
 1. Iterate over each string and keep adding the same index element till one finishes.
 2. Add the remaining string if any of them still have letters, and the other one fininshed.
