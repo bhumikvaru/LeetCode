@@ -9,6 +9,7 @@ var canPlaceFlowers = function(flowerbed, n) {
     {
         flowerbed[0]=1;
         count_available+=1;
+        if(count_available >= n) return true;
     }
     if(flowerbed.length ===1 && flowerbed[0]===0 && n===1) return true;
     if(flowerbed.length ===1 &&flowerbed[0]===1 && n>0) return false;
@@ -17,11 +18,16 @@ var canPlaceFlowers = function(flowerbed, n) {
     {
         flowerbed[flowerbed.length-1]=1;
         count_available+=1;
+         if(count_available >= n) return true;
     }
     for(let i=1;i<flowerbed.length-1;i++)
     {
-        if(flowerbed[i-1] ===0 && flowerbed[i+1]===0 && flowerbed[i] === 0) {count_available+=1;
-        flowerbed[i]=1;}
+        if(flowerbed[i-1] ===0 && flowerbed[i+1]===0 && flowerbed[i] === 0) 
+        {
+            count_available+=1;
+            flowerbed[i]=1;
+             if(count_available >= n) return true;
+        }
     }
     console.log(flowerbed)
     console.log(count_available)
