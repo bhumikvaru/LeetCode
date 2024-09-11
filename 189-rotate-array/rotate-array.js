@@ -4,10 +4,22 @@
  * @return {void} Do not return anything, modify nums in-place instead.
  */
 var rotate = function(nums, k) {
-    let new_array = [...nums];
-    for(let i =0;i<nums.length;i++)
-    {
-        nums[(k+i)%nums.length] = new_array[i]
-    }
-    return nums;
+    k = k%nums.length
+      reverse(nums, 0,nums.length-1);
+     reverse(nums, 0,k-1)
+    //  reverse(nums,k)
+     reverse(nums, k,nums.length-1)
 };
+
+
+function reverse(nums, start, end)
+{
+    while(start<end)
+    {
+        let temp = nums[start];
+        nums[start]=nums[end];
+        nums[end] = temp;
+        start++;
+        end--;
+    }
+}
