@@ -7,12 +7,22 @@ var check = function (nums) {
     //only one element will always be sorted
     if (nums.length === 1)
         return true;
-    // if the order sequence is broken more than once its not rotated
-    for (let i = 0; i < nums.length; i++) {
-        if (nums[i] > (nums[(i + 1) % nums.length])) {
-            count++;
+    /*     concatnated sorted array should contain 
+    the passed array as a subarray        
+     */
+     let concatnated = [...nums].sort((a,b) => {
+         return a - b;
+     })
+    console.log(nums)
+     concatnated = concatnated.concat(concatnated)
+     console.log(concatnated)
+     for(let i = 0; i< nums.length;i++)
+     {
+        console.log(concatnated.slice(i,i+nums.length))
+        if( concatnated.slice(i, i + nums.length).every((val,index) =>  nums[index] === val))
+        {
+            return true;
         }
-    }
-    console.log(count)
-    return count <= 1
+     }
+     return false;
 }
