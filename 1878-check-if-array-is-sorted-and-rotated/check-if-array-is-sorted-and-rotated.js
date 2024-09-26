@@ -7,8 +7,8 @@ var check = function (nums) {
     //only one element will always be sorted
     if (nums.length === 1)
         return true;
-    /*     concatnated sorted array should contain 
-    the passed array as a subarray        
+    /*     
+        Check with the sort string, concatnate with itself, and then the given string should be a substring 
      */
      let concatnated = [...nums].sort((a,b) => {
          return a - b;
