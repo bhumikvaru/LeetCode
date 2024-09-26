@@ -9,19 +9,14 @@ var findMaxConsecutiveOnes = function (nums) {
         if (nums[i] === 1) {
             count++;
         } else {
-            // console.log(maximum)
             console.log(count)
             if (maximum <count) {
                 maximum = count;
             }
-            //     console.log(maximum)
-            // }
             count = 0;
         }
     }
-    // console.log(count)
     if(count>maximum) maximum = count;
-        console.log(maximum)
 
     return maximum;
 };
