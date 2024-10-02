@@ -2,25 +2,28 @@
  * @param {number[]} nums
  * @return {void} Do not return anything, modify nums in-place instead.
  */
-var sortColors = function (nums) {
-    let hashMap = {};
-    for (let i = 0; i < nums.length; i++) {
-        if (hashMap[nums[i]])
-            hashMap[nums[i]] = hashMap[nums[i]] + 1;
-        else
-            hashMap[nums[i]] = 1
-    };
-    let index = 0;
-    let count = 0;
-    for (set in hashMap) {
-        while (count<hashMap[set])
-        {
-            nums[index] = parseInt(set);
-            index++;
-            count++;
+var sortColors = function(nums) {
+    let low =0, mid = 0, high = nums.length-1;
+    while(mid<=high)
+    {
+        if(nums[mid]===2)
+        { 
+            let temp = nums[mid];
+            nums[mid] = nums[high];
+            nums[high] = temp;
+            high--;
         }
-        count = 0;
+        else if(nums[mid]===1)
+        {
+            mid++;
+        }
+        else if(nums[mid]===0)
+        {
+            let temp = nums[low];
+            nums[low] = nums[mid];
+            nums[mid] = temp;
+            low++;
+            mid++;
+        }
     }
-
-    console.log(hashMap)
 };
