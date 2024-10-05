@@ -3,20 +3,15 @@
  * @return {number[]}
  */
 var rearrangeArray = function(nums) {
-    let positive = [];
-    let negative = [];
+    let newArray = new Array(nums.length);
+    let posIndex=0,negIndex=1;
     for(let i =0 ;i<nums.length;i++)
     {
         if(nums[i]>0)
-            positive.push(nums[i])
-        else    
-            negative.push(nums[i])
-    };
-    for(let i =0,j=0;i<nums.length;i++,j++)
-    {
-        nums[i] = positive[j];i++
-        nums[i] = negative[j];
-    }
-    console.log(nums)
-    return nums;
+{            newArray[posIndex] = nums[i];posIndex+=2;
+}        else    
+{            newArray[negIndex] = nums[i];negIndex+=2;
+}    };
+
+    return newArray;
 };
