@@ -9,7 +9,7 @@ var nextPermutation = function(nums) {
         if(nums[i]<nums[i+1])
             {k = i;}
     }
-    for(let i = 0;i<nums.length;i++)
+    for(let i = k;i<nums.length;i++)
     {
         if(nums[k]<nums[i])
             {l = i;}
