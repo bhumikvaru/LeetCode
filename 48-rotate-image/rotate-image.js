@@ -7,7 +7,9 @@ var rotate = function(matrix) {
     {
         for(let j =i+1;j<matrix[i].length;j++)
         {
-            [matrix[i][j], matrix[j][i]] = [matrix[j][i], matrix[i][j]]
+            let temp = matrix[i][j];
+            matrix[i][j] = matrix[j][i];
+            matrix[j][i]= temp;
         }
     }
     console.log(matrix)
