@@ -5,7 +5,7 @@
 var rotate = function(matrix) {
     for(let i = 0 ;i< matrix.length;i++)
     {
-        for(let j =i;j<matrix[i].length;j++)
+        for(let j =i+1;j<matrix[i].length;j++)
         {
             let temp = matrix[i][j];
             matrix[i][j] = matrix[j][i];
@@ -15,12 +15,7 @@ var rotate = function(matrix) {
     console.log(matrix)
     for(let i =0;i<matrix.length;i++)
     {
-        for(let j=0;j<Math.ceil(matrix[i].length/2);j++)
-        {
-            let temp = matrix[i][j]; 
-            matrix[i][j]= matrix[i][matrix[i].length -1 - j];
-            matrix[i][matrix[i].length -1 - j] = temp;
-        }
+        matrix[i].reverse()
     }
     // console.log(matrix)
 };
