@@ -21,12 +21,6 @@ var majorityElement = function(nums) {
             {
                 count1--; count2--;
             }
-
-            console.log("nums", nums[i]);
-            console.log("element1", elem1);
-            console.log("count1", count1);
-            console.log("element2", elem2);
-            console.log("count2", count2);
     }
     let result = [];
     count1 =0, count2 =0;
