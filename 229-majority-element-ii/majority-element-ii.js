@@ -17,6 +17,7 @@ var majorityElement = function(nums) {
         console.log(elem)
         if (elem[1] > Math.floor(nums.length/3))
         result.push(elem[0])
+        if(result.length ===2) break;
     }
     return result;
 };
